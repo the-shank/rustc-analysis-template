@@ -1,5 +1,5 @@
 [package]
-name = "aunor-rewriter-2"
+name = "rustc-analysis-template"
 version = "0.1.0"
 edition = "2021"
 
