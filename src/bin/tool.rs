@@ -1,10 +1,11 @@
 use std::{
-    fs,
+    fs::{self, File},
     path::{Path, PathBuf},
     time::Instant,
 };
 
 use clap::Parser;
+use rustc_analysis_template::analyze_path;
 
 #[derive(Parser, Debug)]
 struct Args {
@@ -58,6 +59,17 @@ fn main() {
         path.push("src/lib.rs");
     }
     assert!(path.is_file());
+
+    let conf = rustc_analysis_template::AnalysisConfig {};
+
+    let analysis_result = if let Some(dump_file) = &args.use_analysis_result {
+        let dump_file = File::open(dump_file).unwrap();
+        serde_json::from_reader(dump_file).unwrap()
+    } else {
+        analyze_path(path, &conf)
+    };
+
+    // transform::transform_path(path, &analysis_result);
 
     let _t = Timer::new(args.time);
 }

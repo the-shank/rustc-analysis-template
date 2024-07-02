@@ -31,13 +31,7 @@ pub fn analyze_path(path: &Path, conf: &AnalysisConfig) -> AnalysisResult {
 }
 
 #[derive(Default, Debug, Clone)]
-pub struct AnalysisConfig {
-    // pub max_loop_head_states: usize,
-    // pub widening: bool,
-    // pub verbose: bool,
-    // pub print_functions: BTreeSet<String>,
-    // pub function_times: Option<usize>,
-}
+pub struct AnalysisConfig {}
 
 type OutputParam = ();
 
