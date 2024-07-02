@@ -10,37 +10,25 @@ use clap::Parser;
 struct Args {
     #[arg(short, long)]
     dump_analysis_result: Option<PathBuf>,
+
     #[arg(short, long)]
     use_analysis_result: Option<PathBuf>,
 
     #[arg(short, long)]
     verbose: bool,
-    #[arg(short, long)]
-    max_loop_head_states: Option<usize>,
-    #[arg(long)]
-    no_widening: bool,
 
     #[arg(short, long)]
     transform: bool,
-    #[arg(short, long)]
-    size: bool,
-    #[arg(long)]
-    sample_negative: bool,
-    #[arg(long)]
-    sample_may: bool,
-    #[arg(long)]
-    sample_must: bool,
+
     #[arg(long)]
     time: bool,
-    #[arg(long)]
-    function_times: Option<usize>,
 
     #[arg(short, long)]
-    print_function: Vec<String>,
-    #[arg(short, long)]
     log_file: Option<PathBuf>,
+
     #[arg(short, long)]
     output: Option<PathBuf>,
+
     input: PathBuf,
 }
 
